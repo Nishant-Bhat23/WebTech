@@ -1,0 +1,32 @@
+.main{
+    justify-content: center;
+    align-items: center;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.timetable {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.timetable td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+
+.timetable td[colspan="3"],
+.timetable td[rowspan="6"] {
+    background-color: #f2f2f2;
+}
