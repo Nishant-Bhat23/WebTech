@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+</head>
+<body>
+
+    <h1>Array Operations</h1>
+
+    <script>
+        // Sample array of numbers
+        const numbers = [1, 2, 3, 4, 5];
+
+        // forEach(): Iterates over each element in the array
+        console.log('forEach():');
+        numbers.forEach(function (num) {
+            console.log(num);
+        });
+
+        // map(): Creates a new array by applying a function to each element
+        console.log('\nmap():');
+        const squaredNumbers = numbers.map(function (num) {
+            return num * num;
+        });
+        console.log(squaredNumbers);
+
+        // filter(): Creates a new array with elements that pass a test
+        console.log('\nfilter():');
+        const evenNumbers = numbers.filter(function (num) {
+            return num % 2 === 0;
+        });
+        console.log(evenNumbers);
+
+        // reduce(): Reduces the array to a single value (accumulator) through a function
+        console.log('\nreduce():');
+        const sum = numbers.reduce(function (accumulator, num) {
+            return accumulator + num;
+        }, 0); // Initial value of the accumulator is 0
+        console.log(sum);
+    </script>
+
+</body>
+</html>

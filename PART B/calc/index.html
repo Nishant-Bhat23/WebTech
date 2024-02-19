@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Arithmetic Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("R.jpeg");
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            opacity: 0.9;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calculator {
+            background-image: linear-gradient(black, red, black);
+            border: 2px solid white;
+            display: grid;
+            place-items: center;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            width: 300px;
+            height: 386px;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .display {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            width: 275px;
+            height: 68px;
+            font-size: 30px;
+            font-family: 'Shantell Sans', cursive;
+            border-radius: 20px;
+            text-align: right;
+            box-shadow: 1px 1px;
+            padding: 3px;
+            background-color: black;
+            color: white;
+        }
+
+        .button {
+            background-color: black;
+            color: whitesmoke;
+            font-family: 'Shantell Sans', cursive;
+            width: 65px;
+            height: 50px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 1px 1px;
+            margin: 5px;
+        }
+
+        .equal {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple Arithmetic Calculator</h1>
+    </header>
+    <main>
+        <form>
+            <div class="calculator">
+                <div class="display"><input type="text" name="display" class="display" value="" autofocus></div>
+
+                <div><input type="button" class="button clear" value="Clr"></div>
+                <div><input type="button" class="button delete" value="Del" ></div>
+                <div><input type="button" class="button dot" value="."></div>
+                <div><input type="button" class="button operator" value="/"></div>
+
+                <div><input type="button" class="button digit" value="1" ></div>
+                <div><input type="button" class="button digit" value="2" ></div>
+                <div><input type="button" class="button digit" value="3" ></div>
+                <div><input type="button" class="button operator" value="*"></div>
+
+                <div><input type="button" class="button digit" value="4" ></div>
+                <div><input type="button" class="button digit" value="5" ></div>
+                <div><input type="button" class="button digit" value="6" ></div>
+                <div><input type="button" class="button operator" value="-"></div>
+
+                <div><input type="button" class="button digit" value="7" ></div>
+                <div><input type="button" class="button digit" value="8" ></div>
+                <div><input type="button" class="button digit" value="9" ></div>
+                <div><input type="button" class="button operator" value="+"></div>
+
+                <div><input type="button" class="button digit" value="0" ></div>
+                <div><input type="button" class="button digit" value="00" ></div>
+                <div class="equal"><input type="button" class="button equal" value="="></div>
+            </div>
+        </form>
+    </main>
+    <script>
+        let string = "";
+        const buttons = Array.from(document.querySelectorAll(".button"));
+
+        buttons.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                if (e.target.value === "=") {
+                    string = eval(string);
+                    document.querySelector('.display input').value = string;
+                } else if (e.target.value === "Clr") {
+                    string = "";
+                    document.querySelector('.display input').value = string;
+                } else if (e.target.value === "Del") {
+                    string = string.slice(0, string.length - 1);
+                    document.querySelector('.display input').value = string;
+                } else {
+                    string += e.target.value;
+                    document.querySelector('.display input').value = string;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

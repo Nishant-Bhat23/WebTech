@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character and Word Count</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Character and Word Count</h1>
+
+    <label for="inputText">Enter Text:</label>
+    <textarea id="inputText" rows="4" cols="50" oninput="countCharactersAndWords()"></textarea>
+
+    <p id="characterCount">Characters: 0</p>
+    <p id="wordCount">Words: 0</p>
+
+    <script>
+        function countCharactersAndWords() {
+            // Get the input text from the textarea
+            const inputText = document.getElementById('inputText').value;
+
+            // Count characters
+            const characterCount = inputText.length;
+
+            // Count words
+            const wordCount = inputText.split(/\s+/).filter(function (word) {
+                return word.length > 0; // Exclude empty strings
+            }).length;
+
+            // Display the counts
+            document.getElementById('characterCount').textContent = `Characters: ${characterCount}`;
+            document.getElementById('wordCount').textContent = `Words: ${wordCount}`;
+        }
+    </script>
+
+</body>
+</html>
